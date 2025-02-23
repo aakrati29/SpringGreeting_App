@@ -1,13 +1,14 @@
 package com.example.greetingApp.controller;
 
 import com.example.greetingApp.services.GreetingServices;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/greetings")
 public class Greeting {
-    private GreetingServices greetingServices;
+    private final GreetingServices greetingServices;
 
     Greeting(GreetingServices greetingServices){
         this.greetingServices = greetingServices;
@@ -21,6 +22,17 @@ public class Greeting {
     @GetMapping("/serviceparam")
     public String display(@RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName){
         return greetingServices.getMessage(firstName, lastName);
+    }
+
+    @PostMapping
+    public com.example.greetingApp.entities.Greeting saveGreeting(@RequestParam String message) {
+         return greetingServices.saveGreeting(message);
+    }
+
+    // Retrieve all saved greetings
+    @GetMapping
+    public List<com.example.greetingApp.entities.Greeting> getAllGreetings() {
+        return greetingServices.getAllGreetings();
     }
 
     @GetMapping("/greeting")
