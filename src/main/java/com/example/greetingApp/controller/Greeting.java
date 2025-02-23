@@ -54,4 +54,10 @@ public class Greeting {
     public com.example.greetingApp.entities.Greeting updateGreeting(@PathVariable Long id, @RequestBody Greeting updatedGreeting) {
         return greetingServices.updateGreeting(id, updatedGreeting.greetingServices.getMessage());
     }
+
+    @DeleteMapping("/greetDBDelete/{id}")
+    public String deleteGreeting(@PathVariable Long id) {
+        greetingServices.deleteGreeting(id);
+        return "Greeting with ID " + id + " deleted successfully!";
+    }
 }
