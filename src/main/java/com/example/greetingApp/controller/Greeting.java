@@ -1,9 +1,11 @@
 package com.example.greetingApp.controller;
 
 import com.example.greetingApp.services.GreetingServices;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/greetings")
@@ -38,5 +40,13 @@ public class Greeting {
     @GetMapping("/greeting")
     public String display(){
         return "Demonstrate greeting controller..";
+    }
+
+    // Find a greeting by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<com.example.greetingApp.entities.Greeting> getGreetingById(@PathVariable Long id) {
+        Optional<com.example.greetingApp.entities.Greeting> greeting = greetingServices.findGreetingById(id);
+        return greeting.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
