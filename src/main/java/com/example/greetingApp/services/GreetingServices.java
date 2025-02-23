@@ -12,7 +12,7 @@ public class GreetingServices {
 
     private final GreetingRepository greetingRepository;
 
-    public GreetingServices(GreetingRepository greetingRepository){
+    public GreetingServices (GreetingRepository greetingRepository){
         this.greetingRepository = greetingRepository;
     }
 
@@ -31,19 +31,20 @@ public class GreetingServices {
         return greetingRepository.findById(id);
     }
 
+
     public String getMessage(){
         return "Hello world!";
     }
 
 
     public String getMessage(String firstName, String lastName){
-        if(firstName != null && lastName != null){
-            return "firstName : " + firstName + ", lastName : " + lastName;
+        if (firstName != null && lastName != null){
+             return "firstName : " + firstName + ", lastName : " + lastName;
         }
-        else if(firstName != null){
+        else if (firstName != null){
             return firstName;
         }
-        else if(lastName != null){
+        else if (lastName != null){
             return lastName;
         }
         else{
