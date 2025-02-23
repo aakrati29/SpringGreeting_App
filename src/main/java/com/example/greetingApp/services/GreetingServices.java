@@ -31,11 +31,18 @@ public class GreetingServices {
         return greetingRepository.findById(id);
     }
 
+    public Greeting updateGreeting(Long id, String newMessage) {
+        Greeting existingGreeting = greetingRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Greeting not found with ID: " + id));
+
+        existingGreeting.setMessage(newMessage);
+        return greetingRepository.save(existingGreeting);
+    }
+
 
     public String getMessage(){
         return "Hello world!";
     }
-
 
     public String getMessage(String firstName, String lastName){
         if (firstName != null && lastName != null){

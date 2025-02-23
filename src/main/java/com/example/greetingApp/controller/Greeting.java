@@ -49,4 +49,9 @@ public class Greeting {
         return greeting.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    @PutMapping("/{id}")
+    public com.example.greetingApp.entities.Greeting updateGreeting(@PathVariable Long id, @RequestBody Greeting updatedGreeting) {
+        return greetingServices.updateGreeting(id, updatedGreeting.greetingServices.getMessage());
+    }
 }
