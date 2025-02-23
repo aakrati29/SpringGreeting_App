@@ -17,13 +17,13 @@ public class GreetingServices {
 
     // Save greeting message
     public Greeting saveGreeting(String message) {
-        Greeting greeting = new Greeting(message);
+        Greeting greeting =  new Greeting(message);
         return greetingRepository.save(greeting);
     }
 
     // Get all saved greetings
     public List<Greeting> getAllGreetings() {
-        return greetingRepository.findAll();
+         return greetingRepository.findAll();
     }
 
     public String getMessage(){

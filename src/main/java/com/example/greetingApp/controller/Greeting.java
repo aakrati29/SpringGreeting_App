@@ -26,7 +26,7 @@ public class Greeting {
 
     @PostMapping
     public com.example.greetingApp.entities.Greeting saveGreeting(@RequestParam String message) {
-        return greetingServices.saveGreeting(message);
+         return greetingServices.saveGreeting(message);
     }
 
     // Retrieve all saved greetings
