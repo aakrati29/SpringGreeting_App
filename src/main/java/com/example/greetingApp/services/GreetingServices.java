@@ -5,13 +5,14 @@ import com.example.greetingApp.repository.GreetingRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GreetingServices {
 
     private final GreetingRepository greetingRepository;
 
-    GreetingServices(GreetingRepository greetingRepository){
+    public GreetingServices(GreetingRepository greetingRepository){
         this.greetingRepository = greetingRepository;
     }
 
@@ -24,6 +25,10 @@ public class GreetingServices {
     // Get all saved greetings
     public List<Greeting> getAllGreetings() {
          return greetingRepository.findAll();
+    }
+
+    public Optional<Greeting> findGreetingById(Long id) {
+        return greetingRepository.findById(id);
     }
 
     public String getMessage(){
