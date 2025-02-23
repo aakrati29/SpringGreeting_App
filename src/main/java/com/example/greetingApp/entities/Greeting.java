@@ -13,9 +13,9 @@ public class Greeting {
     private long  id;
     private String message;
 
-    public Greeting() {}
+    public Greeting(Object o, String message) {}
 
-    public Greeting(String message) {
+    public Greeting (String message) {
         this.message = message;
     }
 
