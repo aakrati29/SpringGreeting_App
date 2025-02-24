@@ -1,4 +1,4 @@
-package com.example.greetingApp.repository;
+ package com.example.greetingApp.repository;
 
 import  com.example.greetingApp.entities.Greeting;
 import org.springframework.data.jpa.repository.JpaRepository;
