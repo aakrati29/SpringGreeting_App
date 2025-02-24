@@ -15,7 +15,7 @@ public class Greeting {
 
     public Greeting(Object o, String message) {}
 
-    public Greeting (String message) {
+    public Greeting (String message){
         this.message = message;
     }
 
@@ -31,7 +31,7 @@ public class Greeting {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage (String message) {
         this.message = message;
     }
 }

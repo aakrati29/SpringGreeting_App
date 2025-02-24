@@ -13,13 +13,13 @@ public class GreetingServices {
     private final GreetingRepository greetingRepository;
 
     public GreetingServices (GreetingRepository greetingRepository){
-        this.greetingRepository = greetingRepository;
+         this.greetingRepository = greetingRepository;
     }
 
     // Save greeting message
     public Greeting saveGreeting(String message) {
-        Greeting greeting =  new Greeting(message);
-        return greetingRepository.save(greeting);
+         Greeting greeting =  new Greeting(message);
+         return greetingRepository.save(greeting);
     }
 
     // Get all saved greetings

@@ -10,7 +10,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/greetings")
 public class Greeting {
-    private final GreetingServices greetingServices;
+     private final GreetingServices greetingServices;
 
     Greeting(GreetingServices greetingServices){
         this.greetingServices = greetingServices;
